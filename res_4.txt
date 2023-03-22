@@ -1,0 +1,9 @@
+1) ^P(x,y) or Q(x,y) or R(x,y)
+2)^ zX pY P(x,y) => Q(x,y)
+pX ^pY p(x,y) => Q(x,y)
+pX zY ^(P(x,y)=>Q(x,y))
+pX zY ^(^p(x,y) or Q(x,y))
+pX zY (p(x,y) and Q(x,y))
+= 
+{P(x,y)}
+{Q(x,y)}

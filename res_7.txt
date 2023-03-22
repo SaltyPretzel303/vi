@@ -1,0 +1,56 @@
+zlocin(x)
+pocinio(x,y) // x pocinio y
+
+kriminalac(x)
+uhapsen(x)
+
+---
+
+zX pY zlocin(x) => pocinio(y,x)
+zX,Y zlocin(y) and ^kriminalac(x) => ^pocinio(x,y)
+zX ^kriminalac(x) => ^uhapsen(x)
+zX,Y krimianac(x) and uhapsen(x) and zlocin(y) => ^ucinio(x,y)
+pX,Y zlocin(x) and pocinio(y,x)
+
+pX kriminalac(x) and ^uhapsen(x)
+
+=====================
+
+{ ^zlocin(a), pocinio(f(a),a) }
+{ ^zlocin(b), kriminalac(c), ^pocinio(c,b)}
+{ kriminalac(d), ^uhapsen(d) }
+{ ^kriminalac(e), ^uhapsen(e), ^zlocin(f), ^pocinio(e, f) }
+{ zlocin(g) }
+{ pocinio(h,i)}
+{^kriminalac(j), uhaspen(j)} <<<<
+
+====================
+g/k b/k 
+{ zlocin(g) }
+{ ^zlocin(b), kriminalac(c), ^pocinio(c,b)}
+
+{kriminalac(c), ^pocinio(c,b)}
+====================
+h/l i/m
+{ pocinio(h,i)}
+{kriminalac(c), ^pocinio(c,b)}
+
+{kriminalac(c)}
+
+===================
+c/n j/n
+{kriminalac(c)}
+{^kriminalac(j), uhaspen(j)} <<<<
+
+{uhaspen(j)} <<<<
+================
+
+c/o e/o j/o h/o
+g/p f/p
+{ kriminalac(c) }
+{ uhaspen(j) } <<<<
+{ zlocin(g) }
+{ pocinio(h,i)}
+{ ^kriminalac(e), ^uhapsen(e), ^zlocin(f), ^ucinio(e, f) }											   
+
+{}

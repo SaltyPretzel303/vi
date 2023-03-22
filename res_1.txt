@@ -1,0 +1,36 @@
+zlocin(x)
+kriminalac(x)
+cini_zlocin(x)
+uhapsen(x)
+
+========================================
+
+zX pY zlocin(x) => cini_zlocin(y)
+zX cini_zlocin(x) => kriminalac(x)
+zX uhapsen(x) => kriminalac(x)
+zX kriminalac(x) and uhapsen(x) => ^cini_zlocin(x)
+pX cini_zlocin(x)
+
+========================================
+
+^zlocin(x) or cini_zlocin(f(x))
+^cini_zlocin(x) or kriminalac(x) 
+^uhapsen(x) or kriminalac(x)
+^kriminalac(x) or ^uhapsen(x) or ^cini_zlocin(x)
+cini_zlocin(x)
+
+========================================
+
+dokaz: pX kriminalac(x) and ^uhapsen(x)
+
+^kriminalac(x) or uhapsen(x)
+
+ako match-ujem:
+^uhapsen(x) or kriminalac(x)
+	i ono sto je potrebno dokazadi: 
+^kriminalac(x) or uhapsen(x)
+	dobijam {}
+
+ovo je resenje ... ? 
+
+

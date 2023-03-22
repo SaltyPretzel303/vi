@@ -1,0 +1,38 @@
+majka(x,y)
+otack(x,y)
+roditelj(x,y)
+
+majka(Dragana, Milan)
+majka(Jovana, Jasna)
+otac(Petar, Dragan)
+
+
+zX zY majka(x,y) or otac(x,y) => roditelj(x,y)
+
+pX roditelj(x, Milan) ... ? 
+
+===========================
+
+^majka(x,y) or roditelj(x,y)
+^otac(x,y) or roditelj(x,y)
+
+^roditelj(x, Milan)
+
+===========================
+
+x/Dragana y/Milan
+^majka(Dragana,Milan) or roditelj(Dragana,Milan)
+majka(Dragana, Milan)
+
+x/Dragana
+^roditelj(Dragana, Milan)
+roditelj(Dragana, Milan)
+{}
+
+=> Dragana
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+nadredjen(x,y) 
+podredjen(x,y)
+
+grad(x)
+zemlja(x)
+glavni_grad(x,y)
+
+srednjoskolac(x)
+pusi(x)
+
+kaput(x) 
+u_ormanu(x,y)
+pripada(x,y)
+
+uradio(x,y)
+naljutiolo(x,y)
+
+zX zY nadredjen(x,y) => podredjen(y,x)
+zX pY zemlja(x) => grad(y) and glavni_grad(x,y)
+glavni_grad(srbija, beograd)
+pX srednjoskolac(x) and ^pusi(x)
+pX kapu(x) and u_ormanu(x, Marija) and pripada(x,Nikola)
+pX uradio(zoran,x) ^ naljutilo(x,Ana)
+
+

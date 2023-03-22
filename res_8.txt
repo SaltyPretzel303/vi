@@ -1,0 +1,60 @@
+voli(x,y)
+zvezda(x)
+
+studen(x)
+polozio(x)
+
+igra_fudbal(x)
+
+uci(x)
+
+====================
+
+zX voli(Marija, x) => zezda(x)
+zX student(x) and ^polozio(x) => ^igra_fudbal(x)
+student(Jovan)
+zX student(x) and ^uci(x) => ^polizio(x)
+zX ^igra_fudbal(x) => ^zvezda(x)
+
+====================
+
+{ ^voli(Marija,x), zvezda(x) }
+{ ^student(x), polizio(x), ^igra_fudbal(x) }
+{ student(Jovan) }
+{ ^student(x), uci(x), ^polozio(x) }
+{ igra_fudbal(x), ^zvezda(x) }
+
+{ ^uci(Jovan) }
+{ voli(Marija, Jovan) }
+
+==========+
+^uci(Jovan) => ^voli(Marija, Jovan)
+^(uci(Jovan) or ^voli(Marija, Jovan))
+
+^uci(Jovan) and voli(Marija, Jovan)
+==========+
+
+x/Jovan
+{ student(Jovan) }
+{ ^student(x), uci(x), ^polozio(x) }
+
+{ ^uci(Jovan) }
+{ uci(Jovan), ^polozio(Jovan) }
+
+x/jovan
+{ ^polozio(Jovan) }
+{ student(Jovan) }
+{ ^student(x), polizio(x), ^igra_fudbal(x) }
+
+x/jovan
+{ ^igra_fudbal(jovan) }
+{ igra_fudbal(z), ^zvezda(x) }
+
+x/jovan
+{ ^zvezda(Jovan) }
+{ voli(Marija, Jovan), zvezda(Jovan) }
+
+
+
+{ voli(Marija, Jovan) }
+{ voli(Marija, jovan) }

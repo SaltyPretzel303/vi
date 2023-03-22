@@ -1,0 +1,10 @@
+file:///home/nemanja/Pictures/vi/res_1.png
+
+SzX p(x) => ( (zY p(y) => p(f(x,y))) and ^( zY q(x,y) => p(y) ) )
+zX ^p(x) or ( zY ^p(y) or p(f(x,y)) and ^( zY ^q(x,y) or p(y) ) )
+zX ^p(x) or ( zY ^p(y) or p(f(x,y)) and ( pY q(x,y) and ^p(y) ) )
+^p(x) or ( ^p(y) or p(f(x,y)) and ( q(x,g(x)) and ^p(g(x)) ) )
+
+^p(x) or ^p(y) or p(f(x,y))
+^p(z) or q(z,g(z))  
+^p(b) pr ^p(g(b)) )

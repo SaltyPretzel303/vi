@@ -1,0 +1,37 @@
+cuntools module 
+	reduce 	->	reduce(lambda x, y: x+y, range(1,100))
+
+	partion	->	partion(function, arg1, arg2, arg3)
+	# will call function on each passed patameter ... 
+
+itertools module
+	count(0,2)			0,2,4,6, ... inf
+	cycle([1,2,3,4])	[1,2,3,4], [1,2,3,4], [1,2,3,4] ... 
+	repat([1,2],10)		[1,2], [1,2], [1,2] x 10
+
+	accumulate(range(1,11),lambda x,y: x*y, initial=1) 	1, 1, 6, 24, 120, 720, 5040 ... 
+	
+	chain("abc","def")	["a","b","c","d","e","f"]
+	
+	compress("abcdef",[1,1,0,1,0,1])	['a','b','d','f']
+	
+	dropwhile(lambda x: x<5 ,[1,3,5,1,12,4,15]) [5,1,12,4,15] 
+	# drop elements until element with the value >=5 is reached 
+	
+	filterfalse(lambda x: x<5 [1,3,5,1,12,4,15]) [5,12,15]
+	# drop elements with the value <5, keep ones with false confition result
+	
+	for k,g in groupby("aaaabbbccdaabb"):
+		print((k,len(list(g))),end=" ")
+	# (a,5) (b, 3) (c,2) (d,1) (a,2) (b,3)
+
+	islice("abcdef",1,4,2) # from, count, step -> [b,d]
+	# from range 1-4 take every 2-nd element
+
+	parwise("abcd")	[(a,b),(b,c),(c,d)]
+
+	
+
+
+
+
