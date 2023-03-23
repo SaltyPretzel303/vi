@@ -1,0 +1,36 @@
+S(x,y)
+	clear(x) uslov
+	clear(y)
+	table(x)
+
+	on(x,y) dodati
+
+	clear(y) oduzeti
+	table(x) 
+
+U(x,y)
+	on(x,y)	 uslov
+	clear(x)
+
+	table(x) dodati
+	clear(y)
+
+	on(x,y) oduzeti
+
+M(x,y,z)
+	clear(x) uslov
+	clear(z)
+	on(x,y)
+
+	on(x,z) dodati
+	clear(y)
+
+	clear(z) oduzeti
+	on(x,y)
+
+
+table(b) table(d) clear(c) clear(a) clear(d) table(c) on(b,a)
+
+
+on(b,a)
+

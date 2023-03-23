@@ -1,0 +1,45 @@
+M(x,y,z)
+
+T(clear(x), s) and T(clear(z), s) and T(on(x,y), s) => T(on(x,z), do(M(x,y,z), s)) and T(clear(y), do(M(x,y,z), s))
+
+T(clear(u),s) and u!=z => T(clear(u), do(M(x,y,z), s))
+T(on(u,v),s) and u!=x => T(on(u,v), do(M(x,y,z), s))
+T(table(u),s) => T(table(u),do(M(x,y,z), s))
+ 
+==========================
+
+table(B)
+table(D)
+table(F)
+on(A,E)
+on(C,D)
+on(E,F)
+clear(A)
+clear(C)
+clear(B)
+
+{ ^T(clear(x1), s1) or ^T(clear(z1), s1) or ^T(on(x1,y1), s1) or T(on(x1,z1), do(M(x1,y1,z1), s1)) }
+{ ^T(clear(x2), s2) or ^T(clear(z2), s2) or ^T(on(x2,y2), s2) or T(clear(y2), do(M(x2,y2,z2), s2)) }
+
+{ ^T(clear(u3),s3) or ^u3!=z3 or T(clear(u3), do(M(x3,y3,z3), s3)) }
+{ ^T(on(u4,v4),s4) or ^u4!=x4 or T(on(u4,v4), do(M(x4,y4,z4), s4)) }
+{ ^T(table(u4),s4) or ^T(table(u4), do(M(x4,y4,z4), s4)) }
+
+{ T(on(A,B), do(a1,s0)) or Ans(a1) }
+
+=========================
+
+
+x1/A z1/B a1/M(A,y1,B) s1/s0
+{ ^T(clear(A), s0) or ^T(clear(B), s0) or ^T(on(A,y1), s0) or T(on(A,B), do(M(A,y1,B), s0)) }
+{ T(on(A,B), do(M(A,y1,B), s0)) or Ans(M(A,y1,B)) }
+
+= { ^T(clear(A), s0) or ^T(clear(B), s0) or ^T(on(A,y1), s0) or  Ans(M(A,y1,B)) }
+
+{ ^T(clear(A), s0) or ^T(clear(B), s0) or ^T(on(A,y1), s0) or  Ans(M(A,y1,B)) }
+{ ^T(clear(B), s0) or ^T(on(A,y1), s0) or  Ans(M(A,y1,B)) }
+{ ^T(on(A,y1), s0) or  Ans(M(A,y1,B)) }
+
+y1/E
+{ ^T(on(A,E), s0) or Ans(M(A,E,B)) }
+{ Ans(M(A,E,B)) }

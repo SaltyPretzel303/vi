@@ -1,0 +1,83 @@
+U(x,y)
+
+T(clear(x),s) and T(on(x,y),s) => T(table(x), do(U(x,y))) and T(clear(y), do(U(x,y)))
+
+T(clear(u),s) => T(clear(u), do(U(x,y),s))
+T(table(u),s) => T(table(u), do(U(x,y),s))
+T(on(u,v),s) and u!=x => T(on(u,v), do(U(x,y),s))
+
+==========================
+
+{ ^T(clear(x1), s1) or ^T(on(x1,y1), s1) or T(table(x1), do(U(x1,y1), s1)) }
+{ ^T(clear(x2), s2) or ^T(on(x2,y2), s2) or T(clear(y2), do(U(x2,y2), s2)) }
+
+{ ^T(clear(u3),s3) or T(clear(u3), do(U(x3,y3),s3)) }
+{ ^T(table(u4),s4) or T(table(u4), do(U(x4,y4),s4)) }
+{ ^T(on(u5,v5),s5) or ^u5!=x5 or T(on(u5,v5), do(U(x5,y5),s5)) }
+
+==========================
+
+{ T(table(a), s0) }
+{ T(table(c), s0) }
+{ T(on(b,a), s0) }
+{ T(on(d,c), s0) }
+{ T(clear(b), s0) }
+{ T(clear(d), s0) }
+
+T(table(B), do(a2,do(a1,s0))) and T(table(D), do(a2,do(a1,s0))) => Ans(a1,a2)
+{ ^T(table(B), do(a2,do(a1,s0))) or ^T(table(D), do(a2,do(a1,s0))) or Ans(a1,a2) }
+
+==========================
+
+x1/B a2/U(B,y1) s1/do(a1,s0)
+{ ^T(clear(B), do(a1,s0)) or ^T(on(B,y1),do(a1,s0)) or T(table(B), do(U(B,y1), do(a1,s0))) }
+{ ^T(table(B), do(U(B,y1), do(a1,s0))) or ^T(table(D), do(a2,do(a1,s0))) or Ans(a1,U(B,y1)) }
+
+ = { ^T(clear(B), do(a1,s0)) or ^T(on(B,y1), do(a1,s0)) or ^T(table(D), do(a2, do(a1,s0))) or Ans(a1, U(B,y1)) }
+
+
+~
+y2/B a1/U(x2,B) s2/s0
+{ ^T(clear(x2),s0) or ^T(on(x2,B), s0) or T(clear(B), do(U(x2,B), s0)) }
+{ ^T(clear(B), do(U(x2,B), s0)) or ^T(on(B,y1), do(U(x2,B) ,s0)) or ^T(table(D), do(a2, do(U(x2,B) ,s0))) or Ans(U(x2,B) , U(B,y1)) }
+
+= { ^T(clear(x2),s0) or ^T(on(x2,B), s0) or ^T(on(B,y1), do(U(x2,B) ,s0)) or ^T(table(D), do(a2, do(U(x2,B) ,s0))) or Ans(U(x2,B) , U(B,y1)) }
+~
+
+x6/D a2/U(d,y6) s6/do(a1,s0)
+{ ^T(clear(D), do(a1,s0)) or ^T(on(D,y6),do(a1,s0)) or T(table(D), do(U(D,y6), do(a1,s0))) }
+{ ^T(clear(B), do(a1,s0)) or ^T(on(B,y1), do(a1,s0)) or ^T(table(D), do(U(d,y6), do(a1,s0))) or Ans(a1, U(B,y1)) }
+
+
+= { ^T(clear(D), do(a1,s0)) or ^T(on(D,y6),do(a1,s0)) or ^T(clear(B), do(a1,s0)) or ^T(on(B,y1), do(a1,s0)) or Ans(a1, U(B,y1)) }
+
+u5/D, v5/y6 a1/U(x5,y5) s5/s0
+{ ^T(on(D,y6),s0) or ^D!=y6 or 		 T(on(D,y6), do(U(x5,y5), s0)) }
+{ ^T(clear(D), do(U(x5,y5),s0)) or  ^T(on(D,y6), do(U(x5,y5), s0)) or 
+  ^T(clear(B), do(U(x5,y5),s0)) or ^T(on(B,y1), do(U(x5,y5),s0)) or 
+  Ans(U(x5,y5), U(B,y1)) }
+
+
+= { ^T(clear(D), do(U(x5,y5),s0)) or
+	^T(clear(B), do(U(x5,y5),s0)) or ^T(on(B,y1), do(U(x5,y5),s0)) or 
+	Ans(U(x5,y5), U(B,y1)) }
+
+u6/B, v6/y1 x6/x5 ,y6/y5 s6/s0
+{ ^T(on(B,y1), s0) or ^B!=x5 or T(on(B,y1), do(U(x5,y5), s0)) }
+{ ^T(clear(D), do(U(x5,y5),s0)) or
+	^T(clear(B), do(U(x5,y5),s0)) or ^T(on(B,y1), do(U(x5,y5), s0)) or 
+	Ans(U(x5,y5), U(B,y1)) }
+
+
+
+= { ^T(on(B,y1), s0) or ^B!=x5 or
+	^T(clear(D), do(U(x5,y5),s0)) or
+	^T(clear(B), do(U(x5,y5),s0)) or
+	Ans(U(x5,y5), U(B,y1)) }
+
+
+
+{ ^T(on(B,y1),s5) or ^B!=x5 or
+	^T(clear(D), do(U(x5,y5),s0)) or
+	^T(clear(B), do(U(x5,y5),s0)) or
+	Ans(U(x5,y5), U(B,y1)) }

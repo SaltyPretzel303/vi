@@ -111,5 +111,14 @@
 10.) Planiranje
 		- Green-ova metoda
 		- Strips alg. 
+
+
+	file://./imgs/5_1.png -> file://./plan_1.txt !!!!
+	file://./imgs/5_2.png -> file://./plan_2.txt
+	file://./imgs/5_3.png -> file://./plan_3.txt
+	file://./imgs/5_4.png -> file://./plan_4.txt
+	file://./imgs/5_5.png -> file://./plan_5.txt
+	file://./imgs/5_6.png -> file://./plan_6.txt
+	
 	
 11.) ID3 stabla odluke ... ? 
